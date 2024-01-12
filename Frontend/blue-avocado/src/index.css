@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.donGrad {
+  background: rgb(64,150,255);
+background: linear-gradient(120deg, rgba(64,150,255,1) 38%, rgba(255,255,255,1) 95%);
+}
