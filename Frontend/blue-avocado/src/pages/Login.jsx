@@ -2,19 +2,23 @@ import React from "react";
 import '../index.css'
 import { Button, Form, Image, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { UserContext } from "../Context";
+import { NavLink } from "react-router-dom";
+import { Nav } from "../Components/Nav";
 
 const Login = () => {
-
-    const handleLogin = () => {
-    };
-
-    const handleLogout = () => {
-    };
+    const [userData, setUserData] = useState({})
+    const [userState, handleStateChange] = UserContext()
 
     const onFinish = (values) => {
-        console.log("Received values of form: ", values);
-        handleLogin();
+        setUserData(values)
+        handleStateChange(values.username)
+
     };
+
+    console.log(userData)
+    console.log(userState)
 
     return (
         <>
@@ -65,15 +69,15 @@ const Login = () => {
                         </Form.Item>
 
                         <Form.Item>
-                            <Button
-                                type="primary"
-                                color="blue.primary"
-                                block
-                                htmlType="submit"
-                                className="mt-10 bg-blue-500 text-white bg-[#4096FF] hover:text-gray-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center"
-                            >
-                                Log in
-                            </Button>
+                                <Button
+                                    type="primary"
+                                    color="blue.primary"
+                                    block
+                                    htmlType="submit"
+                                    className="mt-10 bg-blue-500 text-white bg-[#4096FF] hover:text-gray-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center"
+                                >
+                                    <NavLink to="/" className="flex w-full justify-center" >Log in</NavLink>
+                                </Button>
                         </Form.Item>
                     </Form>
                     <div className="flex flex-row justify-center gap-1 mt-4">
