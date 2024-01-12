@@ -49,3 +49,14 @@ func CreateDonasi(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"data": donasi})
 }
+
+func GetDonaturById(c *gin.Context) {
+
+	// mengambil donaturId dari parameter URL
+	donaturId := c.Param("donaturId")
+
+	var donatur models.Donatur
+	initializers.DB.First(&donatur, donaturId)
+
+	c.JSON(http.StatusOK, gin.H{"data": donatur})
+}
