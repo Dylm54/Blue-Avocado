@@ -43,6 +43,11 @@ npm install
 ### Running the Frontend Server
 To start the frontend server and run the project, use the following command:
 
+## Try the donation feature
+To try the donation feature, you should input the password:
+
+password: "gdsc2024"
+
 ```bash
 npm run dev
 ```
