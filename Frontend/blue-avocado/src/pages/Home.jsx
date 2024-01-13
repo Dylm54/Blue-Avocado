@@ -8,7 +8,7 @@ import axios from "axios";
 
 export const Home = () => {
     const [userState, handleStateChange] = UserContext()
-    const [totalDonasi, setTotalDonasi] = useState()
+    const [totalDonasi, setTotalDonasi] = useState(0)
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -22,7 +22,7 @@ export const Home = () => {
             }
         }
         fetchUser()
-    },[])
+    },[totalDonasi])
 
     console.log(userState)
 
@@ -41,7 +41,7 @@ export const Home = () => {
                 </div>
                 <div className="flex flex-col gap-5 p-5 border rounded-md shadow">
                     <p className="font-semibold">Pool</p>
-                    <div className="h-3 rounded-full w-96" style={{ backgroundColor: totalDonasi != "0" ? "#3B82F6" : "#F0F0F0" }}></div>
+                    <div className="h-3 rounded-full w-96" style={{ backgroundColor: totalDonasi != 0 ? "#3B82F6" : "#F0F0F0" }}></div>
                     <div className="flex w-full">
                         <p>Rp{totalDonasi}</p>
                     </div>
